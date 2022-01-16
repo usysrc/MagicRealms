@@ -9,7 +9,9 @@ A roguelike by usysrc
 
 # Graphics
 Palette: sweetie-16 by grafxkid
+Spriteeditor ASESprite https://asesprite.org/
 
 # Credits
+Font Monogram by datagoblin https://datagoblin.itch.io/monogram
 Sprite styles directly inspired by http://www.squidi.net/three/index.php and Numeron Reactor http://www.numeronreactor.com/
 Hump by VRLD https://github.com/vrld/hump/
