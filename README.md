@@ -9,7 +9,7 @@ A roguelike by usysrc
 
 # Graphics
 Palette: sweetie-16 by grafxkid
-Spriteeditor ASESprite https://asesprite.org/
+Spriteeditor aseprite https://aseprite.org/
 
 # Credits
 Font Monogram by datagoblin https://datagoblin.itch.io/monogram
