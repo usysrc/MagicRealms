@@ -1,7 +1,8 @@
-local dijstramap
+local dijkstramap
 
 local calculate = function(game, map, entities)
 
+    
     local guys = {}
     for ent in all(entities) do
         if ent ~= game.hero then
@@ -9,16 +10,16 @@ local calculate = function(game, map, entities)
         end
     end
 
-    dijstramap = {}
+    dijkstramap = {}
 
     local x = game.hero.x
     local y = game.hero.y
     local k = 0
     local check 
-    check = function(x,y, k)
-        local t = dijstramap[x..","..y]
+    check = function(x, y, k)
+        local t = dijkstramap[x..","..y]
         if game.map.isWalkable(x, y) and (not t or k < t) and not guys[x..","..y] then
-            dijstramap[x..","..y] = k
+            dijkstramap[x..","..y] = k
         else
             return
         end
@@ -35,7 +36,9 @@ local map = {}
 
 map.update = calculate
 map.get = function(x,y)
-    return dijstramap[x..","..y]
+    if dijkstramap ~= nil then
+        return dijkstramap[x..","..y]
+    end
 end
 
 return map

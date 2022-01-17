@@ -62,15 +62,25 @@ local Map = function()
         return tile and tile.walkable
     end
 
-    map.draw = function(self)
+    local canvas
+    map.predraw = function(self)
+        if canvas then return end
+        canvas = love.graphics.newCanvas(8192, 8192)
+        love.graphics.setCanvas(canvas)
+        love.graphics.setColor(1,1,1)
         for i=1, 100 do
             for j=1, 100 do
-                local tile = data[i..","..j]
+                local tile = map.get(i, j)
                 if tile then
                     love.graphics.draw(tile.img, i * w, j * h)
                 end
             end
         end
+        love.graphics.setCanvas()
+    end
+    map.draw = function()
+        love.graphics.setColor(1,1,1)
+        love.graphics.draw(canvas, 0,0)
     end
 
     map.get = function(x,y)
@@ -80,6 +90,8 @@ local Map = function()
     map.set = function(x,y, id)
         data[x..","..y] = Tile(id)
     end
+
+    
 
     return map
 end

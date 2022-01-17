@@ -63,9 +63,10 @@ end
 
 function game:draw()
     love.graphics.clear()
+    map:predraw()
     cam:attach()
     map:draw()
-    
+
     table.sort(entities, function(a,b) return a.z<b.z end)
     for ent in all(entities) do
         ent:draw()
