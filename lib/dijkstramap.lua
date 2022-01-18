@@ -1,12 +1,11 @@
 local dijkstramap
 
-local calculate = function(game, map, entities)
-
+local calculate = function(game, entities)
     
     local guys = {}
     for ent in all(entities) do
         if ent ~= game.hero then
-            guys[ent.x..","..ent.y] = ent
+            guys[ent.x..","..ent.y] = true
         end
     end
 

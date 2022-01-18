@@ -20,7 +20,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ]]--
 
 local display = {}
-local scale = 1
+local scale = 2
 local minScale = 1
 local w = 600
 local h = 400

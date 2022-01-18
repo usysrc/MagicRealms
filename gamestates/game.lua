@@ -46,8 +46,8 @@ function game:init()
     effects = {}
     game.effects = effects
 
-    for i=1, 10 do
-        add(entities, Mob(game, i*8, 25))
+    for i=1, 100 do
+        add(entities, Mob(game, i*2, 25))
     end
     for i=1, 10 do
         for j=1, 10 do
@@ -87,7 +87,7 @@ function game:keypressed(...)
 end
 
 function game:turn()
-    dijkstramap.update(game, map, entities)
+    dijkstramap.update(game, entities)
     for ent in all(entities) do
         ent:turn()
     end
