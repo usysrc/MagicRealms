@@ -17,6 +17,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 local Entity = require "gameobjects.entity"
 
+local Stats = require "gameobjects.actions.herostats"
 local Draw = require "gameobjects.actions.draw"
 local Walk = require "gameobjects.actions.walk"
 local Keyboard = require "gameobjects.actions.keyboard"
@@ -28,16 +29,13 @@ local Hero = function(game)
 
     local hero = Entity()
     hero.game = game
-    hero.hideUI = true
     hero.items = {}
     hero.x = 15
     hero.y = 25
     hero.z = 100
     hero.color = {1,1,1}
-    hero.maxhp = 100
-    hero.hp = hero.maxhp
-    hero.attack = 10
     
+    Stats(hero)
     Draw(hero, "hero")
     Walk(hero)
     Keyboard(hero)

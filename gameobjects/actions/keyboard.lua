@@ -1,9 +1,6 @@
 return function(entity)
-    entity.keypressed = function(self, key)
-        if key == "i" then
-            self.hideUI = not self.hideUI
-            return
-        end
+
+    local move = function(self, key)
         local x,y = 0, 0
         if key == "left"    then x = -1; self.dir = -1 end
         if key == "right"   then x = 1; self.dir = 1 end
@@ -14,18 +11,34 @@ return function(entity)
         elseif key == "." then
             entity:turn()
         end
-        if not self.hideUI then
-            if #key == 1 then
-                local k = 0
-                for item in all(self.items) do
-                    k = k + 1
-                    if k == tonumber(key) then
-                        item:use(self)
-                        del(self.items, item)
-                    end
+    end
+     
+    local ui = function(self, key)
+        if key == "i" then
+            self.hideUI = not self.hideUI
+        end
+        if key == "escape" and not self.hideUI then
+            self.hideUI = not self.hideUI
+        end
+        if self.hideUI then
+            return
+        end
+        -- use items
+        if #key == 1 then
+            local k = 0
+            for item in all(self.items) do
+                k = k + 1
+                if k == tonumber(key) then
+                    item:use(self)
+                    del(self.items, item)
                 end
             end
         end
-        
+    end
+
+    entity.keypressed = function(self, key)
+        ui(self, key)
+        if not self.hideUI then return end
+        move(self, key)
     end
 end

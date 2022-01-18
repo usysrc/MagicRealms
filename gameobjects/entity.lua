@@ -32,10 +32,7 @@ local Entity = function()
     e.getY = function(self)
         return self.y * self.h
     end
-    e.walkon = function() end
-    e.walkonable = function() return false end
     e.turn = function() end
-    e.addItem = function() end
     return e
 end
 

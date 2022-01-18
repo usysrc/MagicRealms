@@ -1,6 +1,7 @@
 local Image = require "lib.image"
 
 return function(entity)
+    entity.hideUI = true
     entity.drawUI = function(self)
         love.graphics.setColor(1,0,0)
         love.graphics.rectangle("fill", 100, 4, 100 * self.hp/self.maxhp, 16)

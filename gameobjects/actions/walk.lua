@@ -6,7 +6,7 @@ return function(entity)
         for ent in all(self.game.entities) do
             if ent ~= self and ent.x == tx and ent.y == ty and ent.z == self.z then
                 ent:walkon(self)
-                found = not ent:walkonable()
+                found = true
             end
         end
         if not found then

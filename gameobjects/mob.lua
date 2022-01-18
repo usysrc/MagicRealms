@@ -18,6 +18,7 @@ local Timer = require "hump.timer"
 
 local Entity = require "gameobjects.entity"
 
+local Stats = require "gameobjects.actions.herostats"
 local Draw = require "gameobjects.actions.draw"
 local Walk = require "gameobjects.actions.walk"
 local Die = require "gameobjects.actions.mob.die"
@@ -34,11 +35,7 @@ local Mob = function(game, x,y)
     mob.y = y or 25
     mob.color = {1,1,1}
 
-    -- stats
-    mob.maxhp = 30
-    mob.hp = mob.maxhp
-    mob.attack = 8
-
+    Stats(mob)
     Draw(mob, "bandit")
     Walk(mob)
     Die(mob)

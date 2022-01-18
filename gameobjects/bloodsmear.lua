@@ -15,10 +15,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ]]--
 
 
-local Image = require "lib.image"
 local Entity = require "gameobjects.entity"
 
-local dijstramap = require "lib.dijkstramap"
+local Draw = require "gameobjects.actions.draw"
 
 local Bloodsmear = function(game, x, y, dir)
     local tile = game.map.get(x,y)
@@ -32,13 +31,8 @@ local Bloodsmear = function(game, x, y, dir)
     smear.dir = dir
     smear.color = {1,1,1}
 
-    smear.walkonable = function() return true end
+    Draw(smear, "blood")
 
-    smear.draw = function(self)
-        love.graphics.setColor(self.color)
-        love.graphics.draw(Image.blood, self:getX()+self.w/2, self:getY()+self.h/2, 0, self.dir, 1, self.w/2, self.h/2)
-        love.graphics.setColor(1,1,1)
-    end
     return smear
 end
 
