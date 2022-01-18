@@ -18,7 +18,7 @@ local Timer = require "hump.timer"
 
 local Entity = require "gameobjects.entity"
 
-local Stats = require "gameobjects.actions.herostats"
+local Stats = require "gameobjects.actions.mob.stats"
 local Draw = require "gameobjects.actions.draw"
 local Walk = require "gameobjects.actions.walk"
 local Die = require "gameobjects.actions.mob.die"
