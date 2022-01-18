@@ -1,6 +1,7 @@
 local Image = require "lib.image"
 
 return function(entity, img)
+    entity.color = {1,1,1}
     entity.img = img and Image[img] or Image.hero
     entity.draw = function(self)
         love.graphics.setColor(self.color)

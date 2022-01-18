@@ -1,4 +1,5 @@
 return function(entity)
+    entity.items = {}
 
     local move = function(self, key)
         local x,y = 0, 0

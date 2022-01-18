@@ -29,11 +29,9 @@ local Hero = function(game)
 
     local hero = Entity()
     hero.game = game
-    hero.items = {}
     hero.x = 15
     hero.y = 25
     hero.z = 100
-    hero.color = {1,1,1}
     
     Stats(hero)
     Draw(hero, "hero")

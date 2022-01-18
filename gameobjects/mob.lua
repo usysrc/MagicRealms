@@ -33,7 +33,6 @@ local Mob = function(game, x,y)
     mob.type = "mob"
     mob.x = x or 40
     mob.y = y or 25
-    mob.color = {1,1,1}
 
     Stats(mob)
     Draw(mob, "bandit")
