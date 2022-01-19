@@ -9,6 +9,7 @@ A roguelike by usysrc
 
 # Graphics
 Palette: sweetie-16 by grafxkid
+
 Spriteeditor aseprite https://aseprite.org/
 
 # Credits
