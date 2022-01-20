@@ -67,7 +67,7 @@ function game:draw()
     cam:attach()
     map:draw()
 
-    table.sort(entities, function(a,b) return a.z<b.z end)
+    table.sort(entities, function(a,b) return a.z+a.zfight<b.z+b.zfight end)
     for ent in all(entities) do
         ent:draw()
     end

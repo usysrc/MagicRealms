@@ -35,10 +35,7 @@ end
 
 local tiles = {
     TilePreset("grass", Image.tile, true),
-    TilePreset("oblock", Image.block, false, {"breakable"}),
-    TilePreset("bblock", Image.bblock, false, {"breakable"}),
-    TilePreset("gblock", Image.gblock, false, {"breakable"}),
-    TilePreset("ablock", Image.ablock, false, {"breakable"})
+    TilePreset("block", Image.block, false, {"breakable"}),
 }
 
 local Tile = function(id)
@@ -51,7 +48,7 @@ local Tile = function(id)
     tile.walkable = preset.walkable
     tile.flags = preset.flags
     tile.id = id
-    
+
     return tile
 end
 

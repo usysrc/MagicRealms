@@ -1,1 +1,1 @@
-return 24
+return 20

@@ -16,8 +16,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 local Tile = require("gameobjects.tile")
 
-local w = 24
-local h = 24
+local w = require "lib.tilesize"
+local h = require "lib.tilesize"
 
 local Map = function()
     local data = {}
@@ -28,7 +28,7 @@ local Map = function()
     local generateMap = function(mw, my)
         for i=1, mw do
             for j=1, mh do
-                    data[i..","..j] = Tile(1)
+                data[i..","..j] = Tile(1)
             end
         end
     
@@ -90,8 +90,6 @@ local Map = function()
     map.set = function(x,y, id)
         data[x..","..y] = Tile(id)
     end
-
-    
 
     return map
 end
