@@ -20,7 +20,7 @@ local Timer = (require "hump.timer")
 
 local Hero      = require "gameobjects.hero"
 local Mob    = require "gameobjects.mob"
-local Potion    = require "gameobjects.potion"
+local Items    = require "gameobjects.items"
 local Map       = require "gameobjects.map"
 local dijkstramap = require "lib.dijkstramap"
 
@@ -34,6 +34,13 @@ function game:init()
 
     hero = Hero(game)
     game.hero = hero
+    for i=1, 20 do
+        if i%2 == 0 then
+            game.hero:addItem(Items.Potion(game))
+        else
+            game.hero:addItem(Items.Sword(game))
+        end
+    end
     
     cameralerp.init(cam, hero)
     entities = {}
@@ -51,7 +58,7 @@ function game:init()
     end
     for i=1, 10 do
         for j=1, 10 do
-            add(entities, Potion(game, 2+i*8, 2+j*8))
+            add(entities, Items.Potion(game, 2+i*8, 2+j*8))
         end
     end
 end
@@ -82,7 +89,9 @@ end
 
 function game:keypressed(...)
     for ent in all(entities) do
-        ent:keypressed(...)
+        for f in all(ent.keypressed) do
+            f(ent, ...)
+        end
     end
 end
 

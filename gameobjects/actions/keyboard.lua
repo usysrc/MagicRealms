@@ -14,32 +14,9 @@ return function(entity)
         end
     end
      
-    local ui = function(self, key)
-        if key == "i" then
-            self.hideUI = not self.hideUI
-        end
-        if key == "escape" and not self.hideUI then
-            self.hideUI = not self.hideUI
-        end
-        if self.hideUI then
-            return
-        end
-        -- use items
-        if #key == 1 then
-            local k = 0
-            for item in all(self.items) do
-                k = k + 1
-                if k == tonumber(key) then
-                    item:use(self)
-                    del(self.items, item)
-                end
-            end
-        end
-    end
 
-    entity.keypressed = function(self, key)
-        ui(self, key)
+    add(entity.keypressed, function(self, key)
         if not self.hideUI then return end
         move(self, key)
-    end
+    end)
 end

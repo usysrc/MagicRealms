@@ -14,29 +14,13 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ]]--
 
-local tilesize = require "lib.tilesize"
+local Image = require "lib.image"
 
-local Entity = function()
-    local e = {}
-    e.type = "entity"
-    e.x = 0
-    e.y = 0
-    e.z = 100 
-    e.zfight = math.random()*0.1 -- against zfighting when drawing
-    e.w = tilesize
-    e.h = tilesize
-    e.dir = 1
-    e.draw = function() end
-    e.update = function() end
-    e.keypressed = {}
-    e.getX = function(self)
-        return self.x * self.w
-    end
-    e.getY = function(self)
-        return self.y * self.h
-    end
-    e.turn = function() end
-    return e
+return function()
+    local itemType = {}
+    itemType.img = Image.notfound
+    itemType.name = "notfound"
+    itemType.type = "notfound"
+    itemType.description = ""
+    return itemType
 end
-
-return Entity

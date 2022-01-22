@@ -40,7 +40,5 @@ return function(entity)
         Timer.after(0.25, function() self.color = {1,1,1} end)
     end
 
-    entity.addItem = function(self, item)
-        add(self.items, item)
-    end
+    
 end

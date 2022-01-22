@@ -23,6 +23,8 @@ local Draw = require "gameobjects.actions.draw"
 local Walk = require "gameobjects.actions.walk"
 local Die = require "gameobjects.actions.mob.die"
 local Seek = require "gameobjects.actions.mob.seek"
+local Inventory = require "gameobjects.actions.inventory"
+
 
 local Mob = function(game, x,y)
     local tile = game.map.get(x,y)
@@ -39,6 +41,7 @@ local Mob = function(game, x,y)
     Walk(mob)
     Die(mob)
     Seek(mob)
+    Inventory(mob)
 
     return mob
 end

@@ -14,29 +14,19 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ]]--
 
-local tilesize = require "lib.tilesize"
+local NotFound = require "gameobjects.types.notfound"
+local Potion = require "gameobjects.types.potion"
+local Sword = require "gameobjects.types.sword"
+local Item = require "gameobjects.item"
 
-local Entity = function()
-    local e = {}
-    e.type = "entity"
-    e.x = 0
-    e.y = 0
-    e.z = 100 
-    e.zfight = math.random()*0.1 -- against zfighting when drawing
-    e.w = tilesize
-    e.h = tilesize
-    e.dir = 1
-    e.draw = function() end
-    e.update = function() end
-    e.keypressed = {}
-    e.getX = function(self)
-        return self.x * self.w
+local make = function(ItemType)
+    return function(game, x, y)
+        return Item(game, x, y, ItemType)
     end
-    e.getY = function(self)
-        return self.y * self.h
-    end
-    e.turn = function() end
-    return e
 end
 
-return Entity
+return {
+    ["NotFound"] = make(NotFound),
+    ["Potion"] = make(Potion),
+    ["Sword"] = make(Sword),
+}
