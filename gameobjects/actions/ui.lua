@@ -22,16 +22,17 @@ return function(entity)
         if self.hideUI then return end
         local x,y = 440, 32
         love.graphics.draw(Image.frame, x, y)
-        local k = math.max(0, selected - 9)
-        for i = 1, 9 do
+        local k = math.max(0, selected - 13)
+        for i = 1, 13 do
             local item = self.items[k+i]
             if item then
                 if k+i == selected then
-                    love.graphics.draw(Image.selector, x, y + i * 20 - 8 )
+                    love.graphics.draw(Image.selector, x+2, y - 8 + i * 16 )
+                    love.graphics.draw(Image.arrow, x+2, y - 4 + i * 16 )
                 end
-                local x,y = x+20, y + i*20
-                love.graphics.print(item.type.description.."   "..item.type.name, x,y)
-                love.graphics.draw(item.type.img, x + 5, y - 4)
+                local x,y = x+20, y + i*16
+                love.graphics.print("  "..item.type.name, x,y)
+                love.graphics.draw(item.type.img, x + 5, y +8,0,1,1,item.type.img:getWidth()/2, item.type.img:getHeight()/2)
             end
         end
     end

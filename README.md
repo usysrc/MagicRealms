@@ -8,7 +8,7 @@ A roguelike by usysrc
 - lower case for utility functions
 
 # Graphics
-Palette: sweetie-16 by grafxkid
+Palette: DB-32 by dawnbringer
 
 Spriteeditor aseprite https://aseprite.org/
 

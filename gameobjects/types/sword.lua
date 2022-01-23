@@ -19,7 +19,7 @@ local Image = require "lib.image"
 return function()
     local itemType = {}
     itemType.img = Image.sword
-    itemType.name = "sword"
+    itemType.name = "Dark Sword"
     itemType.type = "sword"
     itemType.description = ""
     itemType.use = function(self, entity)
