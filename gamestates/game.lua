@@ -1,19 +1,3 @@
---[[
-Copyright (c) 2022, usysrc
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-]]--
-
 local Camera = require "hump.camera"
 local cameralerp = require "lib.cameralerp"
 local Timer = (require "hump.timer")
@@ -53,7 +37,7 @@ function game:init()
     effects = {}
     game.effects = effects
 
-    for i=1, 100 do
+    for i=1, 10 do
         add(entities, Mob(game, i*2, 25))
     end
     for i=1, 10 do
@@ -73,7 +57,6 @@ function game:draw()
     map:predraw()
     cam:attach()
     map:draw()
-
     table.sort(entities, function(a,b) return a.z+a.zfight<b.z+b.zfight end)
     for ent in all(entities) do
         ent:draw()

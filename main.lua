@@ -1,27 +1,27 @@
---[[
-Copyright (c) 2022, usysrc
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-]]--
-
 require "lib.table"
 
 local system = require "system"
 local Gamestate = require "hump.gamestate"
 local game = require "gamestates.game"
 
+
 function love.load()
+    -- love.profiler = require('lib.profile.profile') 
+    -- love.profiler.start()
     math.randomseed(os.time())
     Gamestate.registerEvents()
     Gamestate.switch(game)
+end
+
+love.frame = 0
+function love.update()
+    -- love.frame = love.frame + 1
+    -- if love.frame%200 == 0 then
+    --     love.report = love.profiler.report(20)
+    --     love.profiler.reset()
+    -- end
+end
+
+function love.draw()
+    -- print(love.report or "Please wait...")
 end
