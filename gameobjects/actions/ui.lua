@@ -16,9 +16,8 @@ return function(entity)
         love.graphics.setColor(1,1,1)
         love.graphics.rectangle("line", 100, 4, 100, 16)
     end
-    
-    entity.drawMenu = function(self)
-        if self.hideUI then return end
+
+    entity.drawInventory = function(self)
         love.graphics.setColor(1,1,1)
         local x,y = 440, 32
         love.graphics.draw(Image.frame, x, y)
@@ -38,6 +37,22 @@ return function(entity)
                 end
             end
         end
+    end
+
+    entity.drawItemDetails = function(self)
+        love.graphics.setColor(1,1,1)
+        local x,y = 200, 32
+        love.graphics.draw(Image.frame_big, x, y)
+        local item = self.items[selected]
+        if item then
+            love.graphics.printf(item.type.description, x + 16, y + 16, 200)
+        end
+    end
+    
+    entity.drawMenu = function(self)
+        if self.hideUI then return end
+        self:drawInventory()
+        self:drawItemDetails()
     end
 
 

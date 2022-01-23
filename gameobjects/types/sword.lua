@@ -5,7 +5,7 @@ return function()
     itemType.img = Image.sword
     itemType.name = "Dark Sword"
     itemType.type = "sword"
-    itemType.description = ""
+    itemType.description = "A sword stolen from the mounts by grave robbers."
     itemType.use = function(self, entity, item)
         if entity.weapon == item then
             entity.weapon = nil
