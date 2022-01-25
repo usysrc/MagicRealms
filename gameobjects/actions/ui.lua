@@ -52,8 +52,8 @@ return function(entity)
     entity.drawMenu = function(self)
         love.graphics.draw(Image.itembox, 16, 16)
         love.graphics.draw(Image.weapon_icon, 16+5, 16+5)
-        if self.weapon then
-            love.graphics.draw(self.weapon.type.img, 16+4, 16+4)
+        if self.equipment and self.equipment.weapon then
+            love.graphics.draw(self.equipment.weapon.type.img, 16+4, 16+4)
         end
         if self.hideUI then return end
         self:drawInventory()

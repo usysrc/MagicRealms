@@ -5,14 +5,15 @@ return function()
     itemType.img = Image.sword
     itemType.name = "Dark Sword"
     itemType.type = "sword"
-    itemType.description = "A sword stolen from the mounts by grave robbers."
+    itemType.attack = 50
+    itemType.description = string.format("A sword stolen from the mounts by grave robbers. Attack: %d", itemType.attack)
     itemType.use = function(self, entity, item)
-        if entity.weapon == item then
-            entity.weapon = nil
+        if entity.equipment.weapon == item then
+            entity.equipment.weapon = nil
             item.equiped = false
         else
-            if entity.weapon then entity.weapon.equiped = false end
-            entity.weapon = item
+            if entity.equipment.weapon then entity.equipment.equiped = false end
+            entity.equipment.weapon = item
             item.equiped = true
         end
     end

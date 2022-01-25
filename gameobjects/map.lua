@@ -3,7 +3,7 @@ local Tile = require("gameobjects.tile")
 local w = require "lib.tilesize"
 local h = require "lib.tilesize"
 
-local Map = function()
+local Map = function(game)
     local data = {}
 
     local map = {}
@@ -65,9 +65,28 @@ local Map = function()
         end
         love.graphics.setCanvas()
     end
+    map.lights = {
+        {x = 20, y = 30},
+        {x = 20, y = 30}
+    }
     map.draw = function()
         love.graphics.setColor(1,1,1)
         love.graphics.draw(canvas, 0,0)
+    end
+    map.drawLight = function()
+        for i=0, mw do
+            for j=0,mh do
+                local c = 0
+                local a = 0.5
+                for _, v in ipairs(map.lights) do
+                    a = a + math.min(10/(math.abs(v.x - i)^2 + math.abs(v.y - j)^2), 1)
+                end
+                a = a + math.min(10/(math.abs(game.hero.x - i)^2 + math.abs(game.hero.y - j)^2), 1)
+
+                love.graphics.setColor(c,c,c,1-a)
+                love.graphics.rectangle("fill", i*20, j*20, 20, 20)
+            end
+        end
     end
 
     map.get = function(x,y)

@@ -18,20 +18,20 @@ function game:init()
 
     hero = Hero(game)
     game.hero = hero
+    game.hero:addItem(Items.Sword(game))
     for i=1, 20 do
         if i%2 == 0 then
             game.hero:addItem(Items.Potion(game))
-        else
-            game.hero:addItem(Items.Sword(game))
         end
     end
+
     
     cameralerp.init(cam, hero)
     entities = {}
     add(entities, hero)
     game.entities = entities
     
-    map = Map()
+    map = Map(game)
     game.map = map
 
     effects = {}
@@ -57,15 +57,18 @@ function game:draw()
     map:predraw()
     cam:attach()
     map:draw()
+    
     table.sort(entities, function(a,b) return a.z+a.zfight<b.z+b.zfight end)
     for ent in all(entities) do
         ent:draw()
     end
+    map:drawLight()
     cam:detach()
 
     for effect in all(effects) do
         effect:draw()
     end
+    
     
     hero:drawUI()
 end

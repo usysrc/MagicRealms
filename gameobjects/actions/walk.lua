@@ -32,9 +32,19 @@ return function(entity)
         self:hit(other)
     end
 
+    entity.modifiers = {}
+
+    entity.getAttack = function(self)
+        local attack = self.attack
+        for i,v in pairs(entity.equipment) do
+            if v.type and v.type.attack then attack = attack + v.type.attack end
+        end
+        return attack
+    end
+
     -- gets hit by other
     entity.hit = function(self, other)
-        self.hp = self.hp - other.attack
+        self.hp = self.hp - other:getAttack()
         if self.hp <= 0 then self:die() end
         self.color = {0,0,0}
         Timer.after(0.25, function() self.color = {1,1,1} end)
