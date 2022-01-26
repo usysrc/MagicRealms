@@ -20,8 +20,11 @@ local TilePreset = function(name, img, walkable, flags)
 end
 
 local tiles = {
+    TilePreset("grass", Image.flowertile, true),
     TilePreset("grass", Image.tile, true),
-    TilePreset("block", Image.block, false, {"breakable"}),
+    TilePreset("grass", Image.grass, true),
+    TilePreset("block", Image.block, false, {"block"}),
+    TilePreset("block", Image.verticalblock, false, {"block"}),
 }
 
 local Tile = function(id)

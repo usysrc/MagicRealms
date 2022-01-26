@@ -41,8 +41,10 @@ function game:init()
         add(entities, Mob(game, i*2, 25))
     end
     for i=1, 10 do
-        for j=1, 10 do
-            add(entities, Items.Potion(game, 2+i*8, 2+j*8))
+        for j=1, 5 do
+            if map.isWalkable(2+i*8, 2+j*8) and math.random() < 0.2 then
+                add(entities, Items.Potion(game, 2+i*8, 2+j*8))
+            end
         end
     end
 end
