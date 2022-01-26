@@ -1,4 +1,5 @@
 local Tile = require("gameobjects.tile")
+local bresenham = require("lib.bresenham.bresenham")
 
 local w = require "lib.tilesize"
 local h = require "lib.tilesize"
@@ -48,11 +49,55 @@ local Map = function(game)
         return tile and tile.walkable
     end
 
-    local canvas
+    map.lightrefresh = true
+    map.lights = {
+        {x = 20, y = 30},
+    }
+
+    local canvas, lightcanvas
+
+    map.predrawLights = function(self)
+        if not map.lightrefresh then return end
+        map.lightrefresh = false
+        local cachedCanvas = love.graphics.getCanvas()
+        lightcanvas = lightcanvas or love.graphics.newCanvas(maxWidth, maxHeight)
+        love.graphics.setCanvas(lightcanvas)
+        love.graphics.clear()
+        local lightmap = {}
+
+        local d = 5
+        for i =-d,d do
+            for j=-d,d do
+                bresenham.los(game.hero.x,game.hero.y,game.hero.x+i,game.hero.y+j, function(x,y)
+                    lightmap[x..","..y] = 1
+                    if not map.isWalkable(x,y) then return false end
+                    return true
+                end)
+            end
+        end
+
+        for i=0, mw do
+            for j=0,mh do
+                local c = 0
+                local a = lightmap[i..","..j] or 0
+                -- for _, v in ipairs(map.lights) do
+                --     a = a + math.min(5/(math.abs(v.x - i)^2 + math.abs(v.y - j)^2), 1)
+                -- end
+                -- if a < 0.2 then a = 0 end
+                love.graphics.setColor(c,c,c,1-a)
+                love.graphics.rectangle("fill", i*20, j*20, 20, 20)
+            end
+        end
+        
+        love.graphics.setCanvas(cachedCanvas)
+    end
     map.predraw = function(self)
+        map:predrawLights()
         if canvas and not map.refresh then return end
         map.refresh = false
-        canvas = love.graphics.newCanvas(maxWidth, maxHeight)
+        local cachedCanvas = love.graphics.getCanvas()
+
+        canvas = canvas or love.graphics.newCanvas(maxWidth, maxHeight)
         love.graphics.setCanvas(canvas)
         love.graphics.setColor(1,1,1)
         for i=1, 100 do
@@ -63,30 +108,16 @@ local Map = function(game)
                 end
             end
         end
-        love.graphics.setCanvas()
+        love.graphics.setCanvas(cachedCanvas)
     end
-    map.lights = {
-        {x = 20, y = 30},
-        {x = 20, y = 30}
-    }
     map.draw = function()
         love.graphics.setColor(1,1,1)
         love.graphics.draw(canvas, 0,0)
     end
-    map.drawLight = function()
-        for i=0, mw do
-            for j=0,mh do
-                local c = 0
-                local a = 0.5
-                for _, v in ipairs(map.lights) do
-                    a = a + math.min(10/(math.abs(v.x - i)^2 + math.abs(v.y - j)^2), 1)
-                end
-                a = a + math.min(10/(math.abs(game.hero.x - i)^2 + math.abs(game.hero.y - j)^2), 1)
 
-                love.graphics.setColor(c,c,c,1-a)
-                love.graphics.rectangle("fill", i*20, j*20, 20, 20)
-            end
-        end
+    map.drawLight = function(self)
+        love.graphics.setColor(1,1,1)
+        love.graphics.draw(lightcanvas)
     end
 
     map.get = function(x,y)

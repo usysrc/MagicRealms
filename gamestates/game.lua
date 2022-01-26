@@ -86,6 +86,7 @@ function game:turn()
     for ent in all(entities) do
         ent:turn()
     end
+    map.lightrefresh = true
 end
 
 return game
