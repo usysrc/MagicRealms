@@ -80,9 +80,9 @@ local Map = function(game)
             for j=0,mh do
                 local c = 0
                 local a = lightmap[i..","..j] or 0
-                -- for _, v in ipairs(map.lights) do
-                --     a = a + math.min(5/(math.abs(v.x - i)^2 + math.abs(v.y - j)^2), 1)
-                -- end
+                for _, v in ipairs(map.lights) do
+                    a = a + math.min(5/(math.abs(v.x - i)^2 + math.abs(v.y - j)^2), 1)
+                end
                 -- if a < 0.2 then a = 0 end
                 love.graphics.setColor(c,c,c,1-a)
                 love.graphics.rectangle("fill", i*20, j*20, 20, 20)
