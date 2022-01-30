@@ -13,8 +13,8 @@ local Hero = function(game)
 
     local hero = Entity()
     hero.game = game
-    hero.x = 15
-    hero.y = 25
+    hero.x = 1
+    hero.y = 1
     hero.z = 100
     
     Stats(hero)

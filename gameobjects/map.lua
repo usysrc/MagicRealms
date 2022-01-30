@@ -1,8 +1,35 @@
 local Tile = require("gameobjects.tile")
 local bresenham = require("lib.bresenham.bresenham")
+local stringx = require("pl.stringx")
 
 local w = require "lib.tilesize"
 local h = require "lib.tilesize"
+
+
+local house = [[
+........................................
+........................................
+........................................
+........................................
+......################..................
+......#.....#........#..................
+......#..............#..................
+......#.....#........#..................
+......#.....#........#..................
+......###.############..................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+........................................
+]]
 
 local Map = function(game)
     local data = {}
@@ -10,7 +37,7 @@ local Map = function(game)
     local map = {}
 
     -- the actual size in tiles
-    local mw, mh = 100, 50
+    local mw, mh = 25, 50
 
     -- the maximum canvas size
     local maxWidth, maxHeight = 2048, 2048
@@ -24,7 +51,7 @@ local Map = function(game)
     
         for n=1, 500 do
             local i = math.random(5, mw)
-            local j = math.random(0, mh-3)
+            local j = math.random(0, mh-4)
             local len = math.random(1, 3)
             local oi, oj, di, dj = 0, 0, 0, 0
             if math.random() < 0.5 then
@@ -52,8 +79,20 @@ local Map = function(game)
         end
     end
 
-    generateMap(mw, mh)
-
+    -- generateMap(mw, mh)
+    local house = stringx.splitlines(house)
+    for i=1, mw do
+        for j=1, mh do
+            local row = house[j]
+            if row then
+                local k = row:sub(i,i)
+                if k then
+                    if k == "#" then k = 4 else k = 1 end
+                    data[i..","..j] = Tile(k)
+                end
+            end
+        end
+    end
     map.isWalkable = function(x,y)
         local tile = data[x..","..y]
         return tile and tile.walkable

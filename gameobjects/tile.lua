@@ -29,7 +29,8 @@ local tiles = {
 
 local Tile = function(id)
     local preset = tiles[id]
-
+    if not preset then error(string.format("no preset found for id, id might be nil, value is %s", id)) end
+    
     local tile = {}
 
     tile.name = preset.name
