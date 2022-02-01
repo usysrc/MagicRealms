@@ -12,15 +12,15 @@ local house = [[
 ........................................
 ........................................
 ......################..................
-......#.....#........#..................
-......#..............#..................
+......#@....#........#..................
+......#.................................
 ......#.....#........#..................
 ......#.....#........#..................
 ......###.############..................
-........................................
-........................................
-........................................
-........................................
+......#.....#...........................
+......#.....#...........................
+......#.....#...........................
+......#######...........................
 ........................................
 ........................................
 ........................................
@@ -37,7 +37,7 @@ local Map = function(game)
     local map = {}
 
     -- the actual size in tiles
-    local mw, mh = 25, 50
+    local mw, mh = 40, 50
 
     -- the maximum canvas size
     local maxWidth, maxHeight = 2048, 2048
@@ -66,33 +66,43 @@ local Map = function(game)
                 oj = oj + dj
                 data[(i+oi)..","..(j+oj)] = Tile(t)
             end
-        end
-        for i=0, mw do
-            for j=0,mh do
+        end        
+    end
+
+    local smoothWall = function()
+        print("smoothwall")
+        for i=1, mw do
+            for j=1,mh do
                 if data[i..","..j] and data[i..","..j].flags.block then
                     local t = data[i..","..(j+1)]
                     if t and t.flags.block then
-                        data[i..","..j] = Tile(4)
+                        data[i..","..j] = Tile(5)
                     end
                 end
             end
         end
     end
 
-    -- generateMap(mw, mh)
-    local house = stringx.splitlines(house)
-    for i=1, mw do
-        for j=1, mh do
-            local row = house[j]
-            if row then
-                local k = row:sub(i,i)
-                if k then
-                    if k == "#" then k = 4 else k = 1 end
-                    data[i..","..j] = Tile(k)
+    local loadMap = function()
+        local house = stringx.splitlines(house)
+        for i=1, mw do
+            for j=1, mh do
+                local row = house[j]
+                if row then
+                    local k = row:sub(i,i)
+                    if k then
+                        if k == "@" then game.hero.x = i; game.hero.y = j end
+                        if k == "#" then k = 4 else k = 1 end
+                        data[i..","..j] = Tile(k)
+                    end
                 end
             end
         end
     end
+    -- generateMap(mw, mh)
+    loadMap()
+    smoothWall()
+
     map.isWalkable = function(x,y)
         local tile = data[x..","..y]
         return tile and tile.walkable
@@ -146,8 +156,8 @@ local Map = function(game)
         end
         
 
-        for i=0, mw do
-            for j=0,mh do
+        for i=1, mw do
+            for j=1,mh do
                 local c = 0
                 local a = lightmap[i..","..j] or 0
                 for _, v in ipairs(map.lights) do

@@ -1,7 +1,7 @@
 local Timer = require "hump.timer"
 
 return function(entity)
-    entity.walkinto = function(self, x,y,tx,ty)
+    entity.walkinto = function(self, x,y,tx,ty, done)
         local found = false
         for ent in all(self.game.entities) do
             if ent ~= self and ent.x == tx and ent.y == ty and ent.z == self.z then
@@ -10,17 +10,19 @@ return function(entity)
             end
         end
         if not found then
-            entity.x = entity.x + x
-            entity.y = entity.y + y
+            Timer.tween(0.1, entity, {x = tx, y = ty}, "linear", function() 
+                entity.x = tx
+                entity.y = ty
+                done()
+            end)
         end
     end
 
     entity.move = function(self, x, y)
         local tx, ty = entity.x + x, entity.y + y
         if self.game.map.isWalkable(tx, ty) then
-            self:walkinto(x,y,tx,ty)
+            self:walkinto(x,y,tx,ty, function() entity:done() end)
         end
-        entity:done()
     end
 
     entity.done = function(self)

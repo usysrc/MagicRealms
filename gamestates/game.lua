@@ -38,7 +38,7 @@ function game:init()
     game.effects = effects
 
     for i=1, 10 do
-        add(entities, Mob(game, i*2, 25))
+        add(entities, Mob(game, i*2, 5))
     end
     for i=1, 10 do
         for j=1, 5 do
