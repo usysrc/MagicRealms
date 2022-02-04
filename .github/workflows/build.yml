@@ -8,7 +8,7 @@ jobs:
     - uses: nhartland/love-build@v1-beta2
       with:
         app_name: 'magic_realms'
-        love_version: '11.3'
+        love_version: '11.4'
     - uses: actions/upload-artifact@v1
       with:
         name: built-applications
