@@ -1,0 +1,17 @@
+name: build
+on: [ push ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    # Build the applications
+    - uses: nhartland/love-build@v1-beta2
+      with:
+      app_name: 'magic_realms'
+      love_version: '11.3'
+    # Upload the built applications
+    - uses: actions/upload-artifact@v1
+      with:
+        name: built-applications
+        path: 'release'
