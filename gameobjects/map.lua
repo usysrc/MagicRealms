@@ -11,7 +11,6 @@ local Map = function(game)
         if x <= 0 or x > map.tilewidth then return end
         if y <= 0 or y > map.tileheight then return end
         local prop = map:getTileProperties(layer, x, y)
-        print(x, y, prop)
         if prop and prop.solid then
             return false
         end
