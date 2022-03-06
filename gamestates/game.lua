@@ -1,7 +1,6 @@
-local Camera = require "hump.camera"
+local Camera = require "lib.hump.camera"
 local cameralerp = require "lib.cameralerp"
-local Timer = (require "hump.timer")
-
+local Timer = require "lib.hump.timer"
 local Hero      = require "gameobjects.hero"
 local Mob    = require "gameobjects.mob"
 local Items    = require "gameobjects.items"
@@ -38,7 +37,7 @@ function game:init()
     game.effects = effects
 
     for i=1, 10 do
-        add(entities, Mob(game, i*2, 5))
+        -- add(entities, Mob(game, i*2, 5))
     end
     for i=1, 10 do
         for j=1, 5 do
@@ -56,7 +55,8 @@ end
 
 function game:draw()
     love.graphics.clear()
-    map:predraw()
+    -- map:predraw()
+    
     cam:attach()
     map:draw()
     
@@ -64,7 +64,7 @@ function game:draw()
     for ent in all(entities) do
         ent:draw()
     end
-    map:drawLight()
+    -- map:drawLight()
     cam:detach()
 
     for effect in all(effects) do

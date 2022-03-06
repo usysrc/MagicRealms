@@ -3,7 +3,7 @@ hump.class
 
 ::
 
-    Class = require "hump.class"
+    Class = require "lib.hump.class"
 
 A small, fast class/prototype implementation with multiple inheritance.
 

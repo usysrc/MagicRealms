@@ -1,7 +1,7 @@
 
 
 local Image = require "lib.image"
-local Timer = (require "hump.timer")
+local Timer = (require "lib.hump.timer")
 
 local tilesize = require "lib.tilesize"
 

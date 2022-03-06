@@ -3,7 +3,7 @@ hump.gamestate
 
 ::
 
-    Gamestate = require "hump.gamestate"
+    Gamestate = require "lib.hump.gamestate"
 
 A gamestate encapsulates independent data and behaviour in a single table.
 

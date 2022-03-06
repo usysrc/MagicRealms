@@ -3,7 +3,7 @@ hump.vector-light
 
 ::
 
-    vector = require "hump.vector-light"
+    vector = require "lib.hump.vector-light"
 
 An table-free version of :doc:`hump.vector <vector>`. Instead of a vector type,
 ``hump.vector-light`` provides functions that operate on numbers.

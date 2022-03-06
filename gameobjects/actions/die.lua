@@ -1,4 +1,4 @@
-local Gamestate = require "hump.gamestate"
+local Gamestate = require "lib.hump.gamestate"
 local diedState = require "gamestates.died"
 
 return function(entity)

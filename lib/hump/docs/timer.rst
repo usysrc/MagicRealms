@@ -3,7 +3,7 @@ hump.timer
 
 ::
 
-    Timer = require "hump.timer"
+    Timer = require "lib.hump.timer"
 
 hump.timer offers a simple interface to schedule the execution of functions. It
 is possible to run functions *after* and *for* some amount of time. For

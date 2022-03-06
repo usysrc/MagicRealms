@@ -1,4 +1,4 @@
-local Timer = require "hump.timer"
+local Timer = require "lib.hump.timer"
 local display = require "display.display"
 
 local calcTarget = function(cam, obj)

@@ -3,7 +3,7 @@ hump.camera
 
 ::
 
-    Camera = require "hump.camera"
+    Camera = require "lib.hump.camera"
 
 A camera utility for LÖVE. A camera can "look" at a position. It can zoom in
 and out and it can rotate it's view. In the background, this is done by

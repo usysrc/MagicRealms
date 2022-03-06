@@ -1,6 +1,6 @@
 
 
-local Timer = require "hump.timer"
+local Timer = require "lib.hump.timer"
 
 local Entity = require "gameobjects.entity"
 

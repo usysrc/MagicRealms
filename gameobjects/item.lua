@@ -1,6 +1,6 @@
 
 
-local Timer = require "hump.timer"
+local Timer = require "lib.hump.timer"
 
 local randomselect = require "lib.randomselect"
 local Image = require "lib.image"

@@ -1,7 +1,7 @@
 require "lib.table"
 
 local system = require "system"
-local Gamestate = require "hump.gamestate"
+local Gamestate = require "lib.hump.gamestate"
 local game = require "gamestates.game"
 
 

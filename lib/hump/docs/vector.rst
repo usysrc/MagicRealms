@@ -3,7 +3,7 @@ hump.vector
 
 ::
 
-    vector = require "hump.vector"
+    vector = require "lib.hump.vector"
 
 A handy 2D vector class providing most of the things you do with vectors.
 
@@ -125,7 +125,7 @@ Create a new vector.
 ::
 
     -- as a shortcut, you can call the module like a function:
-    vector = require "hump.vector"
+    vector = require "lib.hump.vector"
     a = vector(10,10)
 
 
