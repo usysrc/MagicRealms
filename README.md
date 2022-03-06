@@ -15,4 +15,5 @@ Spriteeditor aseprite https://aseprite.org/
 # Credits
 Font Monogram by datagoblin https://datagoblin.itch.io/monogram
 Sprite styles directly inspired by http://www.squidi.net/three/index.php and Numeron Reactor http://www.numeronreactor.com/
+Addtional Tiles and Sprites from Dawnlike
 Hump by VRLD https://github.com/vrld/hump/
