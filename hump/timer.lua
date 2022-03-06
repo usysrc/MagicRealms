@@ -95,10 +95,16 @@ end
 
 function Timer:script(f)
 	local co = coroutine.wrap(f)
-	co(function(t)
-		self:after(t, co)
-		coroutine.yield()
-	end)
+	co(function(fn)
+        fn(co)
+        coroutine.yield()
+    end, function(delay)
+        self:after(delay, co)
+        coroutine.yield()
+    end, function(time, subject, target, method)
+        self:tween(time, subject, target, method, co)
+        coroutine.yield()
+    end)
 end
 
 Timer.tween = setmetatable({
