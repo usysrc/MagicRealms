@@ -77,8 +77,10 @@ end
 
 function game:keypressed(...)
     for ent in all(entities) do
-        for f in all(ent.keypressed) do
-            f(ent, ...)
+        if not ent.locked then
+            for f in all(ent.keypressed) do
+                f(ent, ...)
+            end
         end
     end
 end
