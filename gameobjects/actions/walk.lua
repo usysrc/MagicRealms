@@ -10,7 +10,7 @@ return function(entity)
             end
         end
         if not found then
-            Timer.tween(0.1, entity, {x = tx, y = ty}, "linear", function() 
+            Timer.tween(0.05, entity, {x = tx, y = ty}, "linear", function() 
                 entity.x = tx
                 entity.y = ty
                 done()
@@ -51,6 +51,4 @@ return function(entity)
         self.color = {0,0,0}
         Timer.after(0.25, function() self.color = {1,1,1} end)
     end
-
-    
 end

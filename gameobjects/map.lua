@@ -70,7 +70,6 @@ local Map = function(game)
     end
 
     local smoothWall = function()
-        print("smoothwall")
         for i=1, mw do
             for j=1,mh do
                 if data[i..","..j] and data[i..","..j].flags.block then
@@ -201,7 +200,7 @@ local Map = function(game)
     end
 
     map.drawLight = function(self)
-        love.graphics.setColor(1,1,1)
+        love.graphics.setColor(1,1,1,0.1)
         love.graphics.draw(lightcanvas)
     end
 
