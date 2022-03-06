@@ -1,9 +1,8 @@
 
 
 local Image = require "lib.image"
-
-local TilePreset = function(name, img, walkable, flags)
-    
+local tiles = {}
+local TilePreset = function(id, name, img, walkable, flags)
     local fl = {}
     if flags then
         for flag in all(flags) do
@@ -11,21 +10,22 @@ local TilePreset = function(name, img, walkable, flags)
         end
     end
 
-    return {
+    local preset = {
         name = name,
         img = img,
         walkable = walkable,
         flags = fl
     }
+    tiles[id] = preset
+    return preset
 end
 
-local tiles = {
-    TilePreset("grass", Image.flowertile, true),
-    TilePreset("grass", Image.tile, true),
-    TilePreset("grass", Image.grass, true),
-    TilePreset("block", Image.block, false, {"block"}),
-    TilePreset("block", Image.verticalblock, false, {"block"}),
-}
+TilePreset(1, "grass", Image.flowertile, true)
+TilePreset(2, "grass", Image.tile, true)
+TilePreset(3, "grass", Image.grass, true)
+TilePreset(4, "block", Image.block, false, {"block"})
+TilePreset(5, "block", Image.verticalblock, false, {"block"})
+TilePreset(6, "plank", Image.plank, true)
 
 local Tile = function(id)
     local preset = tiles[id]
