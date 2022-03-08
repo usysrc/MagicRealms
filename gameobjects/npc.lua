@@ -8,26 +8,25 @@ local Stats = require "gameobjects.actions.mob.stats"
 local Draw = require "gameobjects.actions.draw"
 local Walk = require "gameobjects.actions.walk"
 local Die = require "gameobjects.actions.mob.die"
-local Seek = require "gameobjects.actions.mob.seek"
 local Inventory = require "gameobjects.actions.inventory"
+local Conversation = require "gameobjects.actions.npc.conversation"
 
+local NPC = function(game, x,y)
 
-local Mob = function(game, x,y)
+    local npc = Entity()
+    npc.game = game
+    npc.type = "npc"
+    npc.x = x or 40
+    npc.y = y or 25
 
-    local mob = Entity()
-    mob.game = game
-    mob.type = "mob"
-    mob.x = x or 40
-    mob.y = y or 25
+    Stats(npc)
+    Draw(npc, "bandit")
+    Walk(npc)
+    Die(npc)
+    Inventory(npc)
+    Conversation(npc)
 
-    Stats(mob)
-    Draw(mob, "bandit")
-    Walk(mob)
-    Die(mob)
-    Seek(mob)
-    Inventory(mob)
-
-    return mob
+    return npc
 end
 
-return Mob
+return NPC

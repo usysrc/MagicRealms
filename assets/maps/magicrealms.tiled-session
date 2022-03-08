@@ -1,0 +1,73 @@
+{
+    "activeFile": "map.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 4
+        },
+        "/Users/usysrc/dev/js/roguelike/src/maps/map.json": {
+            "scale": 3.0574,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 142.44128998495452,
+                "y": 95.17891018512461
+            }
+        },
+        "/Users/usysrc/dev/love/MagicRealms/gameobjects/map/map.tmx": {
+            "scale": 3.0574,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 182.34447569830576,
+                "y": 146.202655851377
+            }
+        },
+        "map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 273.6666666666667,
+                "y": 348.6666666666667
+            }
+        },
+        "map.tmx#tiles": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        }
+    },
+    "last.imagePath": "/Users/usysrc/dev/love/MagicRealms/assets/img",
+    "map.fixedSize": true,
+    "map.height": 32,
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
+    "map.lastUsedFormat": "tmx",
+    "map.orientation": 1,
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
+    "map.width": 32,
+    "openFiles": [
+        "map.tmx"
+    ],
+    "project": "magicrealms.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "map.tmx",
+        "/Users/usysrc/dev/love/MagicRealms/gameobjects/map/map.tmx",
+        "/Users/usysrc/dev/js/roguelike/src/maps/map.json",
+        "/Users/usysrc/dev/js/roguelike/src/maps/map.tmx",
+        "/Users/usysrc/dev/js/roguelike/dist/map.json",
+        "/Users/usysrc/Documents/tiled/testmap.json",
+        "/Users/usysrc/Documents/tiled/testmap.tmx",
+        "/Users/usysrc/Documents/tiled/rltiles.tsx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 20,
+        "width": 20
+    },
+    "tileset.transparentColor": "#ff00ff",
+    "tileset.type": 0,
+    "tileset.useTransparentColor": false
+}
