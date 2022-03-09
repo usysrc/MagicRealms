@@ -838,7 +838,7 @@ function Map:draw(tx, ty, sx, sy)
 	-- Draw canvas at 0,0; this fixes scissoring issues
 	-- Map is scaled to correct scale so the right section is shown
 	-- lg.push()
-	-- lg.origin()
+	lg.origin()
 	-- lg.scale(sx or 1, sy or sx or 1)
 
 	lg.setCanvas(current_canvas)

@@ -73,6 +73,7 @@ function game:draw()
     
     
     hero:drawUI()
+    love.graphics.setCanvas()
 end
 
 function game:keypressed(...)

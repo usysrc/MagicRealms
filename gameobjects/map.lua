@@ -20,7 +20,18 @@ local Map = function(game)
     initObjects(game, map)
 
     local m = {}
-    m.draw = function(self, ...) map:draw(...) end
+    local canvas = love.graphics.newCanvas(2048, 2048)
+    
+    m.draw = function(self, ...) 
+        if not m.clean then
+            m.clean = true
+            love.graphics.setCanvas(canvas)
+            map:draw(...)
+            love.graphics.setCanvas()
+        end
+        love.graphics.setColor(255,255,255)
+        love.graphics.draw(canvas, 0, 0)
+    end
     m.get = function() end
     m.isWalkable = function(x, y)
         local layer = "Tile Layer 2"

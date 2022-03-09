@@ -1,32 +1,53 @@
-local Dialove = require "lib.dialove.Dialove"
 local Gamestate = require "lib.hump.gamestate"
+local display = require "display.display"
+local Image = require "lib.image"
+local Sfx = require "lib.sfx"
+local Timer = require "lib.hump.timer"
 
-local dialogManager
+local pos, text
+local speed = 30
+local timer
 
 local dialog = {}
-
-dialog.init = function()
-    dialogManager = Dialove.init({
-        font = love.graphics.newFont('fonts/monogram.ttf', 16)
-    })
+dialog.init = function() 
+    timer = Timer.new()
 end
 
-dialog.enter = function(self, prev)
-    dialogManager:show({text = "lets go"})
+local startRevealText = function()
+    local showText
+    showText = function()
+        timer:after(0.01, function()
+            if text:sub(pos,pos)~=" " then
+                Sfx.typing:play()
+            end
+            pos = pos + 1
+            if pos <= #text then
+                showText()
+            end
+        end)
+    end
+    showText()
+end
+
+dialog.enter = function(self, prev, data)
+    pos = 0
+    text = data.text
+    timer:clear()
+    startRevealText()    
 end
 
 dialog.update = function(self, dt)
-    dialogManager:update(dt)
+    timer:update(dt)
+    
 end
 
-dialog.draw = function()
-    love.graphics.setCanvas()
-    dialogManager:draw()
+dialog.draw = function(self)
+    love.graphics.draw(Image.framehori, 0, display:getHeight() - 64)
+    love.graphics.print(string.sub(text, 1, pos), 100, display:getHeight() - 50) 
 end
 
 dialog.keypressed = function(self, k)
     if k == 'return' or k == 'space' then
-        -- dialogManager:pop()
         Gamestate.pop()
     end
 end

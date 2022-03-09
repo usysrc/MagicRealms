@@ -5,7 +5,6 @@ local Gamestate = require "lib.hump.gamestate"
 local game = require "gamestates.game"
 
 
-
 function love.load()
     -- love.profiler = require('lib.profile.profile') 
     -- love.profiler.start()
@@ -24,5 +23,5 @@ function love.update()
 end
 
 function love.draw()
-    -- print(love.report or "Please wait...")
+    -- print(love.report or "Please wait...")˚
 end
