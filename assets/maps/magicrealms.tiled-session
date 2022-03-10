@@ -27,8 +27,8 @@
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 273.6666666666667,
-                "y": 348.6666666666667
+                "x": 223,
+                "y": 210
             }
         },
         "map.tmx#tiles": {

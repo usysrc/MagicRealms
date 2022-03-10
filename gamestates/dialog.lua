@@ -3,8 +3,9 @@ local display = require "display.display"
 local Image = require "lib.image"
 local Sfx = require "lib.sfx"
 local Timer = require "lib.hump.timer"
+local str = require "lib.str"
 
-local pos, text
+local pos, text, title
 local speed = 30
 local timer
 
@@ -31,9 +32,10 @@ end
 
 dialog.enter = function(self, prev, data)
     pos = 0
-    text = data.text
+    text = str.partition(data.text)
+    title = data.title
     timer:clear()
-    startRevealText()    
+    startRevealText()
 end
 
 dialog.update = function(self, dt)
@@ -43,12 +45,20 @@ end
 
 dialog.draw = function(self)
     love.graphics.draw(Image.framehori, 0, display:getHeight() - 64)
-    love.graphics.print(string.sub(text, 1, pos), 100, display:getHeight() - 50) 
+    if title then 
+        love.graphics.print(title..":", 32, display:getHeight() - 52) 
+    end
+    love.graphics.print(string.sub(text, 1, pos), 100, display:getHeight() - 52) 
 end
 
 dialog.keypressed = function(self, k)
     if k == 'return' or k == 'space' then
-        Gamestate.pop()
+        if pos ~= #text then
+            timer:clear()
+            pos = #text
+        else
+            Gamestate.pop()
+        end
     end
 end
 
