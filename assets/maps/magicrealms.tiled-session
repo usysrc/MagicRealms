@@ -5,7 +5,7 @@
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
-            "scaleInDock": 4
+            "scaleInDock": 1
         },
         "/Users/usysrc/dev/js/roguelike/src/maps/map.json": {
             "scale": 3.0574,
@@ -25,15 +25,18 @@
         },
         "map.tmx": {
             "scale": 1.5,
-            "selectedLayer": 2,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 223,
-                "y": 210
+                "x": 99.33333333333331,
+                "y": 36
             }
         },
         "map.tmx#tiles": {
             "scaleInDock": 1,
             "scaleInEditor": 4
+        },
+        "map.tmx#tileset": {
+            "scaleInDock": 0.73
         }
     },
     "last.imagePath": "/Users/usysrc/dev/love/MagicRealms/assets/img",
@@ -64,8 +67,8 @@
     "tileset.margin": 0,
     "tileset.spacing": 0,
     "tileset.tileSize": {
-        "height": 20,
-        "width": 20
+        "height": 32,
+        "width": 32
     },
     "tileset.transparentColor": "#ff00ff",
     "tileset.type": 0,

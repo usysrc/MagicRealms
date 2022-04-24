@@ -6,10 +6,10 @@
 ]]--
 
 local display = {}
-local scale = 2
+local scale = 1
 local minScale = 1
-local w = 600
-local h = 400
+local w = 1024
+local h = 1024
 local settings
 
 local success = love.window.updateMode( w * scale, h * scale, settings )

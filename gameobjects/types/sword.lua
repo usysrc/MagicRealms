@@ -2,7 +2,7 @@ local Image = require "lib.image"
 
 return function()
     local itemType = {}
-    itemType.img = Image.sword
+    itemType.tileID = 2866
     itemType.name = "Dark Sword"
     itemType.type = "sword"
     itemType.attack = 50

@@ -1,4 +1,5 @@
 local Image = require "lib.image"
+local tilesize = require "lib.tilesize"
 
 return function(entity)
 
@@ -22,18 +23,26 @@ return function(entity)
         local x,y = 440, 32
         love.graphics.draw(Image.frame, x, y)
         local k = math.max(0, selected - 13)
+        local h = 24
         for i = 1, 13 do
             local item = self.items[k+i]
             if item then
                 if k+i == selected then
-                    love.graphics.draw(Image.selector, x+2, y - 8 + i * 16 )
-                    love.graphics.draw(Image.arrow, x+2, y - 4 + i * 16 )
+                    love.graphics.draw(Image.selector, x+2, y - 8 + i * h )
+                    love.graphics.draw(Image.arrow, x+2, y - 4 + i * h )
                 end
-                local x,y = x+20, y + i*16
+                local x,y = x+20, y + i * h
                 love.graphics.print("  "..item.type.name, x,y)
-                love.graphics.draw(item.type.img, x + 5, y +8,0,1,1,item.type.img:getWidth()/2, item.type.img:getHeight()/2)
+                -- love.graphics.draw(item.type.img, x + 5, y +8,0,1,1,item.type.img:getWidth()/2, item.type.img:getHeight()/2)
+                love.graphics.draw(
+                    Image.tileset,
+                    item.quad,
+                    x + 5,
+                    y + 8,
+                    0, self.dir, 1, tilesize/2, tilesize/2
+                )
                 if item.equiped then
-                    love.graphics.draw(Image.equip, x, y +8,0,1,1,item.type.img:getWidth()/2, item.type.img:getHeight()/2)
+                    love.graphics.draw(Image.equip, x, y +8,0,1,1,Image.equip:getWidth()/2, Image.equip:getHeight()/2)
                 end
             end
         end
@@ -53,7 +62,14 @@ return function(entity)
         love.graphics.draw(Image.itembox, 16, 16)
         love.graphics.draw(Image.weapon_icon, 16+5, 16+5)
         if self.equipment and self.equipment.weapon then
-            love.graphics.draw(self.equipment.weapon.type.img, 16+4, 16+4)
+            -- love.graphics.draw(self.equipment.weapon.type.img, 16+4, 16+4)
+            love.graphics.draw(
+                    Image.tileset,
+                    self.equipment.weapon.quad,
+                    16+4,
+                    16+4,
+                    0, self.dir, 1, tilesize/2, tilesize/2
+                )
         end
         if self.hideUI then return end
         self:drawInventory()

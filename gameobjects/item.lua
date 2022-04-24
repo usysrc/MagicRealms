@@ -1,4 +1,5 @@
-
+local tilesize = require "lib.tilesize"
+local tilequad = require "lib.tilequad"
 
 local Timer = require "lib.hump.timer"
 
@@ -22,9 +23,17 @@ local Item = function(game, x, y, ItemType)
     item.y = y or 25
     item.color = {1,1,1}
 
+    item.quad = tilequad(item.type.tileID)
+    
     item.draw = function(self)
         love.graphics.setColor(self.color)
-        love.graphics.draw(self.type.img, self:getX(), self:getY())
+        love.graphics.draw(
+            Image.tileset,
+            item.quad,
+            self:getX()+item.w/2,
+            self:getY()+item.h/2,
+            0, self.dir, 1, tilesize/2, tilesize/2
+        )
         love.graphics.setColor(1,1,1)
     end
 
