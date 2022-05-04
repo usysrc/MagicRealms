@@ -1,13 +1,14 @@
 local Timer = require "lib.hump.timer"
 
 return function(entity)
-
     entity.walkinto = function(self, x, y, tx, ty)
         local found = false
         for ent in all(self.game.entities) do
             if ent ~= self and ent.x == tx and ent.y == ty and ent.z == self.z then
+                entity:animateAttack(ent)
                 ent:walkon(self)
                 found = true
+                break
             end
         end
         if not found then
@@ -29,6 +30,8 @@ return function(entity)
             self:walkinto(x, y, tx, ty)
         end
     end
+    
+    -- callback used for example in the player to end the turn
     entity.done = function(self) end
 
     entity.lock = function(self)
@@ -59,5 +62,16 @@ return function(entity)
         if self.hp <= 0 then self:die() end
         self.color = {0,0,0}
         Timer.after(0.25, function() self.color = {1,1,1} end)
+    end
+
+    entity.animateAttack = function(self, other)
+        self:lock()
+        local amplitude = 0.5
+        entity.tx = (other.x - entity.x) * amplitude
+        entity.ty = (other.y - entity.y) * amplitude
+        Timer.tween(0.05, entity, {tx = 0, ty = 0}, "linear", function() 
+            self:unlock()
+            self:done()
+        end)
     end
 end

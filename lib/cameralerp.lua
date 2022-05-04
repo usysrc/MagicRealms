@@ -2,8 +2,8 @@ local Timer = require "lib.hump.timer"
 local display = require "display.display"
 
 local calcTarget = function(cam, obj)
-    local tx = (obj:getX()) + love.graphics.getWidth()/4
-    local ty = (obj:getY()) + love.graphics.getHeight()/4
+    local tx = (obj:getX()) --+ love.graphics.getWidth()/8
+    local ty = (obj:getY()) --+ love.graphics.getHeight()/8
     return tx, ty
 end
 
