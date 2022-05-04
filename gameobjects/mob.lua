@@ -1,5 +1,3 @@
-
-
 local Timer = require "lib.hump.timer"
 
 local Entity = require "gameobjects.entity"
@@ -21,7 +19,7 @@ local Mob = function(game, x,y)
     mob.y = y or 25
 
     Stats(mob)
-    Draw(mob, "bandit")
+    Draw(mob, 3988)
     Walk(mob)
     Die(mob)
     Seek(mob)
