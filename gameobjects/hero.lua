@@ -8,6 +8,7 @@ local UI = require "gameobjects.actions.ui"
 local Die = require "gameobjects.actions.die"
 local Done = require "gameobjects.actions.done"
 local Inventory = require "gameobjects.actions.inventory"
+local Wait = require "gameobjects.actions.wait"
 
 local Hero = function(game)
 
@@ -25,6 +26,7 @@ local Hero = function(game)
     UI(hero)
     Die(hero)
     Done(hero)
+    Wait(hero)
 
     return hero
 end
