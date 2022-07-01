@@ -77,11 +77,14 @@ function game:draw()
     love.graphics.setCanvas()
 end
 
-function game:keypressed(...)
+function game:keypressed(key)
+    if key == "escape" then
+        love.event.quit()
+    end
     for ent in all(entities) do
         if not ent.locked then
             for f in all(ent.keypressed) do
-                f(ent, ...)
+                f(ent, key)
             end
         end
     end

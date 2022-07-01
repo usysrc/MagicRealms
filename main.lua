@@ -2,7 +2,7 @@ require "lib.table"
 
 local system = require "system"
 local Gamestate = require "lib.hump.gamestate"
-local game = require "gamestates.game"
+local loading = require "gamestates.loading"
 
 
 function love.load()
@@ -10,7 +10,7 @@ function love.load()
     -- love.profiler.start()
     math.randomseed(os.time())
     Gamestate.registerEvents()
-    Gamestate.switch(game)
+    Gamestate.switch(loading)
 end
 
 love.frame = 0
