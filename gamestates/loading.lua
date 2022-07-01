@@ -8,6 +8,7 @@ loading.enter = function()
 end
 
 loading.update = function(dt)
+    -- wait a frame to switch to the game
     count = count + 1
     if count == 2 then
         Gamestate.switch(game)
