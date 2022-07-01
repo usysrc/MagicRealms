@@ -19,10 +19,8 @@ function game:init()
     hero.x, hero.y = 4,5
     game.hero = hero
     game.hero:addItem(Items.Sword(game))
-    for i=1, 20 do
-        if i%2 == 0 then
-            game.hero:addItem(Items.Potion(game))
-        end
+    for i=1, 4 do
+        game.hero:addItem(Items.Potion(game))
     end
 
     
@@ -75,6 +73,7 @@ function game:draw()
     
     hero:drawUI()
     love.graphics.setCanvas()
+    love.graphics.print("(i) nvetory", 0, love.graphics.getHeight()-16)
 end
 
 function game:keypressed(key)

@@ -8,8 +8,8 @@
 local display = {}
 local scale = 1
 local minScale = 1
-local w = 1024
-local h = 1024
+local w = 800
+local h = 600
 local settings
 
 local success = love.window.updateMode( w * scale, h * scale, settings )
