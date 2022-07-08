@@ -53,7 +53,7 @@ end
 function game:draw()
     love.graphics.clear()
     
-    cam:attach()
+    cam:attach(nil,nil,nil,nil,true)
     map:draw()
     
     table.sort(entities, function(a,b) return a.z+a.zfight<b.z+b.zfight end)
