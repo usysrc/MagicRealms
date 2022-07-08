@@ -19,18 +19,23 @@ local Map = function(game)
     local map = sti("assets/maps/map01.lua")
     initObjects(game, map)
 
-    local m = {}
-    local canvas = love.graphics.newCanvas(2048, 2048)
+    local m = {
+        clean = false
+    }
+    local canvas = love.graphics.newCanvas(4096, 4096)
     
-    m.draw = function(self, ...) 
+    m.draw = function(self, ...)
+        -- don't redraw the whole map every frame. only on change
         if not m.clean then
             m.clean = true
             love.graphics.setCanvas(canvas)
             map:draw(...)
             love.graphics.setCanvas()
         end
+
         love.graphics.setColor(255,255,255)
         love.graphics.draw(canvas, 0, 0)
+        
     end
     m.get = function() end
     m.isWalkable = function(x, y)

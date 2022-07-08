@@ -38,11 +38,9 @@ function game:init()
     for i=1, 10 do
         add(entities, Mob(game, i*2, 5))
     end
-    for i=1, 10 do
-        for j=1, 5 do
-            if map.isWalkable(2+i*8, 2+j*8) and math.random() < 0.2 then
-                add(entities, Items.Potion(game, 2+i*8, 2+j*8))
-            end
+    for i=0, 3 do
+        for j=0, 3 do
+            add(entities, Items.Potion(game, 2+i*8, 2+j*8))
         end
     end
 end
@@ -54,7 +52,6 @@ end
 
 function game:draw()
     love.graphics.clear()
-    -- map:predraw()
     
     cam:attach()
     map:draw()
@@ -63,21 +60,19 @@ function game:draw()
     for ent in all(entities) do
         ent:draw()
     end
-    -- map:drawLight()
     cam:detach()
 
     for effect in all(effects) do
         effect:draw()
     end
     
-    
     hero:drawUI()
     love.graphics.setCanvas()
-    love.graphics.print("(i) nvetory", 0, love.graphics.getHeight()-16)
+    love.graphics.print("(i) inventory | (.) wait", 0, love.graphics.getHeight()-16)
 end
 
 function game:keypressed(key)
-    if key == "escape" then
+    if key == "q" then
         love.event.quit()
     end
     for ent in all(entities) do
