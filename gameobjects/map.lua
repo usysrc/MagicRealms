@@ -16,13 +16,15 @@ local initObjects = function(game, map)
 end
 
 local Map = function(game)
+    local w,h = 4096, 4096
     local map = sti("assets/maps/map01.lua")
+    map:resize(w,h)
     initObjects(game, map)
 
     local m = {
         clean = false
     }
-    local canvas = love.graphics.newCanvas(4096, 4096)
+    local canvas = love.graphics.newCanvas(w, h)
     
     m.draw = function(self, ...)
         -- don't redraw the whole map every frame. only on change
