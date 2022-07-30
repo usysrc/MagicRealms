@@ -20,7 +20,7 @@ local Hero = function(game)
     
     Stats(hero)
     Inventory(hero)
-    Draw(hero, 4894)
+    Draw(hero, 40)
     Walk(hero)
     Keyboard(hero)
     UI(hero)
