@@ -16,7 +16,7 @@ function game:init()
     game.cam = cam
 
     hero = Hero(game)
-    hero.x, hero.y = 4,5
+    hero.x, hero.y = 54,60
     game.hero = hero
     game.hero:addItem(Items.Sword(game))
     for i=1, 4 do
