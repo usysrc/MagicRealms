@@ -3,10 +3,10 @@ return function(entity)
 
     local move = function(self, key)
         local x,y = 0, 0
-        if key == "left"    then x = -1; self.dir = -1 end
-        if key == "right"   then x = 1; self.dir = 1 end
-        if key == "up"      then y = -1 end
-        if key == "down"    then y = 1  end
+        if key == "left" or key == "h" then x = -1; self.dir = -1 end
+        if key == "right" or key == "l"  then x = 1; self.dir = 1 end
+        if key == "up" or key == "j" then y = -1 end
+        if key == "down" or key == "k" then y = 1  end
         if x ~= 0 or y ~= 0 then 
             entity:move(x,y)
         elseif key == "." then
