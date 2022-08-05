@@ -41,3 +41,6 @@ luac.out
 
 # Mac Stuff
 .DS_Store
+
+# Files that end in tilde
+*~

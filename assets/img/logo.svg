@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.98487472"
+     inkscape:cx="408.68142"
+     inkscape:cy="719.38084"
+     inkscape:window-width="1366"
+     inkscape:window-height="768"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1255">
+      <stop
+         style="stop-color:#6f8afa;stop-opacity:1;"
+         offset="0"
+         id="stop1251" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop1253" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1247">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1243" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop1245" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1247"
+       id="linearGradient1249"
+       x1="71.065003"
+       y1="140.6269"
+       x2="161.0744"
+       y2="140.6269"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1255"
+       id="linearGradient1257"
+       x1="113.74587"
+       y1="122.85329"
+       x2="116.82234"
+       y2="159.54889"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(5.7784175,46.044527)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1255"
+       id="linearGradient3559"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(5.7784175,46.044527)"
+       x1="113.74587"
+       y1="122.85329"
+       x2="116.82234"
+       y2="159.54889" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1255"
+       id="linearGradient3564"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(4.1477519,44.821188)"
+       x1="113.74587"
+       y1="122.85329"
+       x2="116.82234"
+       y2="159.54889" />
+    <filter
+       x="-0.08018066"
+       width="1.1603785"
+       y="-0.25164596"
+       height="1.5032843"
+       inkscape:menu-tooltip="Felt like texture with color turbulence and slightly darker at the edges"
+       inkscape:menu="Textures"
+       inkscape:label="Felt"
+       style="color-interpolation-filters:sRGB;"
+       id="filter3874">
+      <feGaussianBlur
+         result="result1"
+         in="SourceGraphic"
+         stdDeviation="2"
+         id="feGaussianBlur3860" />
+      <feTurbulence
+         result="result0"
+         numOctaves="5"
+         baseFrequency="0.05"
+         type="fractalNoise"
+         id="feTurbulence3862" />
+      <feDisplacementMap
+         result="result2"
+         scale="20"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         in="result1"
+         in2="result0"
+         id="feDisplacementMap3864" />
+      <feGaussianBlur
+         result="result4"
+         in="result2"
+         stdDeviation="5"
+         id="feGaussianBlur3866" />
+      <feComposite
+         result="result6"
+         k1="1"
+         k3="1"
+         k2="0.5"
+         in="result0"
+         in2="result4"
+         operator="arithmetic"
+         id="feComposite3868" />
+      <feComposite
+         in="result6"
+         in2="result0"
+         operator="in"
+         result="result91"
+         id="feComposite3870" />
+      <feComposite
+         operator="arithmetic"
+         k1="1.5"
+         in="result2"
+         in2="result91"
+         id="feComposite3872" />
+    </filter>
+    <filter
+       x="-0.076335842"
+       width="1.1526717"
+       y="-0.13881723"
+       height="1.2776345"
+       inkscape:menu-tooltip="Felt like texture with color turbulence and slightly darker at the edges"
+       inkscape:menu="Textures"
+       inkscape:label="Felt"
+       style="color-interpolation-filters:sRGB"
+       id="filter4236">
+      <feGaussianBlur
+         result="result1"
+         in="SourceGraphic"
+         stdDeviation="2"
+         id="feGaussianBlur4222" />
+      <feTurbulence
+         result="result0"
+         numOctaves="5"
+         baseFrequency="0.05"
+         type="fractalNoise"
+         id="feTurbulence4224" />
+      <feDisplacementMap
+         result="result2"
+         scale="20"
+         yChannelSelector="G"
+         xChannelSelector="R"
+         in="result1"
+         in2="result0"
+         id="feDisplacementMap4226" />
+      <feGaussianBlur
+         result="result4"
+         in="result2"
+         stdDeviation="5"
+         id="feGaussianBlur4228" />
+      <feComposite
+         result="result6"
+         k1="1"
+         k3="1"
+         k2="0.5"
+         in="result0"
+         in2="result4"
+         operator="arithmetic"
+         id="feComposite4230"
+         k4="0" />
+      <feComposite
+         in="result6"
+         in2="result0"
+         operator="in"
+         result="result91"
+         id="feComposite4232" />
+      <feComposite
+         operator="arithmetic"
+         k1="1.5"
+         in="result2"
+         in2="result91"
+         id="feComposite4234"
+         k2="0"
+         k3="0"
+         k4="0" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:41.4001px;fill:#000000;stroke-width:3.45001"
+       x="125.01324"
+       y="15.087885"
+       id="text113"
+       transform="scale(0.87355593,1.1447464)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.6944px;font-family:'Nodesto Caps Condensed';-inkscape-font-specification:'Nodesto Caps Condensed, ';text-align:center;text-anchor:middle;stroke-width:3.45001"
+         x="125.01324"
+         y="15.087885"
+         id="tspan273"
+         dy="28.66">Magic</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Nodesto Caps Condensed';-inkscape-font-specification:'Nodesto Caps Condensed, ';text-align:center;text-anchor:middle;stroke-width:3.45001"
+         x="125.01324"
+         y="68.674438"
+         id="tspan293"> RealmS</tspan></text>
+    <rect
+       style="fill:#181352;fill-opacity:0.534854;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4236)"
+       id="rect4220"
+       width="222.0451"
+       height="122.103"
+       x="-4.8448515"
+       y="156.31656" />
+    <rect
+       style="fill:#190237;fill-opacity:1;stroke:#000000;stroke-width:0.284458;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1435"
+       width="182.00978"
+       height="113.05888"
+       x="17.861683"
+       y="158.31746" />
+    <text
+       xml:space="preserve"
+       style="font-size:41.4001px;fill:url(#linearGradient1257);fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
+       x="122.05027"
+       y="154.18759"
+       id="text113-3"
+       transform="scale(0.87355593,1.1447464)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.6944px;font-family:'Nodesto Caps Condensed';-inkscape-font-specification:'Nodesto Caps Condensed, ';text-align:center;text-anchor:middle;fill:url(#linearGradient1257);fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
+         x="122.05027"
+         y="154.18759"
+         id="tspan273-6"
+         dy="28.66">Magic</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Nodesto Caps Condensed';-inkscape-font-specification:'Nodesto Caps Condensed, ';text-align:center;text-anchor:middle;fill:url(#linearGradient1257);fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1"
+         x="122.05027"
+         y="207.77414"
+         id="tspan293-7"> RealmS</tspan></text>
+    <path
+       id="path3476"
+       style="fill:#a679e0;stroke:#000000;stroke-width:0.401471;filter:url(#filter3874);fill-opacity:1"
+       d="m 207.93774,271.86395 c 2e-5,9.66748 -45.78788,17.50452 -102.27012,17.50452 -56.482244,0 -102.2701446,-7.83704 -102.2701285,-17.50452 7.8e-6,-4.68821 -4.16998919,-54.8968 6.331767,-40.50849 4.7899425,6.56264 5.6708425,23.17055 21.4973915,29.00334 14.291998,5.26723 42.502756,0.24412 65.940444,-2.10569 9.682426,-0.97074 46.605886,14.34185 67.390796,7.59705 17.96937,-5.83114 28.33293,-37.33202 38.7725,-42.53663 22.33634,-11.13571 4.60734,42.98226 4.60735,48.55042 z"
+       sodipodi:nodetypes="sssssssss"
+       transform="matrix(1.0001208,0,0,0.8770051,-2.0227196,33.432663)" />
+  </g>
+</svg>

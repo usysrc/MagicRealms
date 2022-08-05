@@ -35,8 +35,8 @@ function game:init()
     effects = {}
     game.effects = effects
 
-    for i=1, 10 do
-        add(entities, Mob(game, game.hero.x+i*2, game.hero.y+5))
+    for i=1, 3 do
+        add(entities, Mob(game, game.hero.x+i, game.hero.y))
     end
     for i=0, 3 do
         for j=0, 3 do

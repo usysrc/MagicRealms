@@ -43,6 +43,7 @@ return function(entity)
                 )
                 if item.equiped then
                     love.graphics.draw(Image.equip, x, y +8,0,1,1,Image.equip:getWidth()/2, Image.equip:getHeight()/2)
+                    
                 end
             end
         end
@@ -51,10 +52,10 @@ return function(entity)
     entity.drawItemDetails = function(self)
         love.graphics.setColor(1,1,1)
         local x,y = 200, 32
-        love.graphics.draw(Image.frame_big, x, y)
+        love.graphics.draw(Image.frame_big, x-32, y)
         local item = self.items[selected]
         if item then
-            love.graphics.printf(item.type.description, x + 16, y + 16, 200)
+            love.graphics.printf(item.type.description, x, y + 16, 200)
         end
     end
     

@@ -14,7 +14,7 @@ local Bloodsmear = function(game, x, y, dir)
     smear.dir = dir
     smear.color = {1,1,1}
 
-    Draw(smear, 3305)
+    Draw(smear, 70)
 
     return smear
 end
