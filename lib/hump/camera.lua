@@ -112,11 +112,16 @@ function camera:attach(x,y,w,h, noclip)
 	end
 
 	local cx,cy = x+w/2, y+h/2
+  -- If scaled pixel art is used it can jitter because of subpixel movement
+  -- this multiplicator smoothes aus the movement
+  local dejitter = 100
+  cx = math.floor(cx*dejitter)/dejitter
+  cy = math.floor(cy*dejitter)/dejitter
 	love.graphics.push()
 	love.graphics.translate(cx, cy)
 	love.graphics.scale(self.scale)
 	love.graphics.rotate(self.rot)
-	love.graphics.translate(-math.floor(self.x), -math.floor(self.y))
+	love.graphics.translate(-math.floor(self.x*dejitter)/dejitter, -math.floor(self.y*dejitter)/dejitter)
 end
 
 function camera:detach()

@@ -2,18 +2,19 @@ local Timer = require "lib.hump.timer"
 local display = require "display.display"
 
 local calcTarget = function(cam, obj)
-    local tx = (obj:getX()) --+ love.graphics.getWidth()/8
-    local ty = (obj:getY()) --+ love.graphics.getHeight()/8
+    local tx = (obj:getX()) 
+    local ty = (obj:getY()) 
     return tx, ty
 end
 
 local options = {}
-options.max = 0
-options.xperturn = 12
+options.xMax = 0
+options.yMax = math.huge
 
-local init = function(cam, obj)
+local init = function(cam, obj, xMax, yMax)
     cam.x, cam.y = calcTarget(cam, obj)
-    options.max = cam.x
+    options.xMax = xMax or options.xMax
+    options.yMax = yMax or options.yMax
 end
 
 local update = function(cam, obj, dt, speed)
@@ -21,12 +22,14 @@ local update = function(cam, obj, dt, speed)
     local tx, ty = calcTarget(cam, obj)
     cam.x = cam.x + (tx - cam.x) * dt * speed
     cam.y = cam.y + (ty - cam.y) * dt * speed
-    -- if cam.x < options.max then cam.x = options.max end
-    -- if cam.x > options.max then options.max = cam.x end
+    cam.x = math.floor(cam.x*1000)/1000
+    cam.y = math.floor(cam.y*1000)/1000
+    if cam.x - love.graphics.getWidth()/2 < 0 then cam.x = options.xMax end
+    --if cam.x > options.max then options.max = cam.x end
 end
 
 local turn = function(cam)
-    Timer.tween(0.25, options, {max = options.max + options.xperturn})
+   
 end
 
 return {

@@ -3,13 +3,13 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "map.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
-            "scaleInDock": 0.73
+            "scaleInDock": 4
         },
         "#AllAssetsPreview": {
             "scaleInDock": 2
@@ -34,11 +34,11 @@
             }
         },
         "map.tmx": {
-            "scale": 1,
+            "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 169,
-                "y": 179
+                "x": 1008,
+                "y": 780
             }
         },
         "map.tmx#tiles": {
@@ -46,11 +46,11 @@
             "scaleInEditor": 4
         },
         "map.tmx#tileset": {
-            "scaleInDock": 0.73,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "/home/hcnt/dev/MagicRealms/assets/img/Characters",
+    "last.imagePath": "/home/hcnt/dev/MagicRealms/assets/img",
     "map.fixedSize": true,
     "map.height": 32,
     "map.lastUsedExportFilter": "Lua files (*.lua)",
@@ -60,7 +60,6 @@
     "map.tileWidth": 16,
     "map.width": 32,
     "openFiles": [
-        "map.tmx"
     ],
     "project": "magicrealms.tiled-project",
     "property.type": "bool",
@@ -78,8 +77,8 @@
     "tileset.margin": 0,
     "tileset.spacing": 0,
     "tileset.tileSize": {
-        "height": 16,
-        "width": 16
+        "height": 20,
+        "width": 20
     },
     "tileset.transparentColor": "#ff00ff",
     "tileset.type": 0,

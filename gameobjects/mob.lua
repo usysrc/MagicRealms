@@ -22,7 +22,7 @@ local Mob = function(game, x,y)
     mob.y = y
 
     Stats(mob)
-    Draw(mob, 41)
+    Draw(mob, 33)
     Walk(mob)
     Die(mob)
     Seek(mob)

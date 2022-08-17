@@ -50,6 +50,8 @@ local Map = function(game)
         end
         return true
     end
+    map.width = map.width
+    map.height = map.height
     return m
 end
 

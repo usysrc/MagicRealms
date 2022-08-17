@@ -11,8 +11,9 @@ local entities, map, cam, hero, castle, effects
 
 local game = {}
 function game:init()
-    
+    love.graphics.setDefaultFilter("nearest", "nearest") 
     cam = Camera()
+    cam.scale = 2
     game.cam = cam
 
     hero = Hero(game)
@@ -24,7 +25,7 @@ function game:init()
     end
 
     
-    cameralerp.init(cam, hero)
+
     entities = {}
     add(entities, hero)
     game.entities = entities
@@ -32,6 +33,8 @@ function game:init()
     map = Map(game)
     game.map = map
 
+    cameralerp.init(cam, hero, map.width, map.height)
+    
     effects = {}
     game.effects = effects
 
